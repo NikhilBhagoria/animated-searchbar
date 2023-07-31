@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #18171782;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  border-radius: 50%;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  transition: all 1s;
+}
+.search::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 15px;
+  right: 0px;
+  bottom: 0px;
+  left: 15px;
+  width: 12px;
+  height: 2px;
+  background-color: #000;
+  transform: rotate(45deg);
+}
+.search::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  top: -5px;
+  left: -5px;
+  right: 0;
+  bottom: 0;
+}
+.search:hover {
+  width: 50px;
+  height: 50px;
+}
+
+#searchbar:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+#searchbar:hover {
+  cursor: pointer;
+}
+#searchbar {
+  font-weight: 600;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: #fff;
+  color: #e81f1f;
+  text-shadow: 0 0 10px #ccc;
+  padding: 0 80px 0 20px;
+  border-radius: 30px;
+  box-shadow: 12px 13px 25px 0 #111, 8px 9px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+}
+#searchbar:focus ~ .search::before {
+  top: 0;
+  bottom: 0;
+  left: 13px;
+  right: 0;
+  width: 27px;
+  height: 2px;
+  z-index: 10;
+  background-color: #111;
+}
+#searchbar:focus ~ .search::after {
+  top: -2px;
+  bottom: -2px;
+  left: 13px;
+  right: 0;
+  width: 27px;
+  height: 2px;
+  z-index: 15;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+  border: none;
+  background-color: black;
+}
+
+#searchbar:focus ~ .search {
+  right: -240px;
+  background: transparent;
+  z-index: 6;
+}
